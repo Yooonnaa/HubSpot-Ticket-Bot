@@ -1,0 +1,33 @@
+<title>Ticket-Bot Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+
+
+<main>
+
+    <header>
+        <p class="eyebrow">Prototyp · Mock-Daten, keine echten Ticketdaten</p>
+        <h1>Ticket-Bot Dashboard</h1>
+    </header>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="filters">
+        <input type="search" id="search" placeholder="Suche nach Betreff oder Praxis…" aria-label="Suche">
+        <select id="filterCategory" aria-label="Kategorie filtern"></select>
+        <select id="filterStatus" aria-label="Status filtern"></select>
+        <select id="filterTeam" aria-label="Zuständigkeit filtern"></select>
+        <select id="filterPriority" aria-label="Priorität filtern"></select>
+        <span class="count" id="resultCount"></span>
+    </div>
+
+    <div class="board">
+        <div class="card list-card" id="list" role="list" aria-label="Tickets"></div>
+        <div class="card detail" id="detail"></div>
+    </div>
+
+    <footer>Rein clientseitiger Prototyp mit Mock-Daten — nichts wird gespeichert oder verschickt. Da HubSpot keine Antwort-API bietet, würde der Text im echten Tool kopiert und manuell im Ticket eingefügt, nicht automatisch gesendet.</footer>
+
+</main>
+
+<script src="script.js" defer></script>

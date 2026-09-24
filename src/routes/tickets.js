@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import db from '../db/index.js';
+import { computePriority } from '../services/ticketLogic.js';
 
 const router = Router();
 
@@ -9,7 +10,8 @@ router.get('/', (req, res) => {
     const tickets = rows.map((row) => {
         return {
             ...row,
-            history: JSON.parse(row.history)
+            history: JSON.parse(row.history),
+            priorityReasons: computePriority(row).priorityReasons
         };
     });
 
@@ -25,8 +27,9 @@ router.get('/:id', (req, res) => {
 
     const ticket = {
         ...row,
-        history: JSON.parse(row.history)
-};
+        history: JSON.parse(row.history),
+        priorityReasons: computePriority(row).priorityReasons
+    };
 
     res.json(ticket);
 });
