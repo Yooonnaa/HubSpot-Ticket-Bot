@@ -31,4 +31,16 @@ router.get('/:id', (req, res) => {
     res.json(ticket);
 });
 
+router.patch('/:id/status', (req, res) => {
+    const { status } = req.body;
+
+    const result = db.prepare(`UPDATE tickets SET status = ? WHERE id = ?`).run(status, req.params.id);
+
+    if (result.changes === 0) {
+        return res.status(404).json({ error: 'Ticket nicht gefunden' });
+    }
+
+    res.json({ id: req.params.id, status });
+});
+
 export default router;
