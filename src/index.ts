@@ -9,8 +9,8 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
 });
 
+app.use('/tickets', ticketsRouter);
+
 app.listen(port, () => {
   console.log(`Server läuft auf http://localhost:${port}`);
 });
-
-app.use('/tickets', ticketsRouter);
